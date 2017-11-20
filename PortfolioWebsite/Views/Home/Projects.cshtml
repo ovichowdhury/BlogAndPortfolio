@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DataAccess.Project>
+
+@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<h2 class="text-center" style="color: #474E5D">Projects</h2>
+
+<table class="table" style="color: #474E5D">
+    <tr>
+        <th>
+            <label>Name</label>
+        </th>
+        <th>
+            <label>Details</label>
+        </th>
+        <th>
+            <label>Source URL</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectDetails)
+            </td>
+            <td>
+                <a href="@item.sourceUrl"> Click here</a>
+            </td>
+
+        </tr>
+    }
+
+</table>

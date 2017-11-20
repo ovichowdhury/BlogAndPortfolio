@@ -1,0 +1,37 @@
+﻿@model DataAccess.Footer
+
+@{
+    ViewBag.Title = "Footer";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @if (TempData["message"] == null)
+        {
+            @:<span>Update Footer</span>
+        }
+        else
+        {
+            @TempData["message"]
+        }
+    </div>
+    <div class="panel-body">
+        <form method="post">
+            <div class="form-group">
+                <label for="copyright">Copyright</label>
+                <input type="text" name="copyright" placeholder="copyright" class="form-control" id="copyright" value="@Model.copyright" required>
+            </div>
+            <div class="form-group">
+                <label for="fburl">Facebook URL</label>
+                <input type="text" name="FbUrl" placeholder="Enter your facebook URL" class="form-control" id="fburl" value="@Model.fbUrl" required>
+            </div>
+            <div class="form-group">
+                <label for="giturl">Github URL</label>
+                <input type="text" name="GitUrl" placeholder="Enter your github URL" class="form-control" id="giturl" value="@Model.gitUrl" required>
+            </div>
+            <button type="submit" class="btn btn-info" name="Update">Update</button>
+        </form>
+    </div>
+</div>
+

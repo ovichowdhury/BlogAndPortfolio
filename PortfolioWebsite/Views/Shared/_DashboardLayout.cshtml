@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <style>
+        body{
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+    </style>
+    @RenderSection("CustomBundle",false)
+    @RenderSection("CustomScript",false)
+</head>
+<body>
+    <!--Navigation section-->
+    <nav class="navbar navbar-inverse" style="font-size:14px">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigator">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-th-list"></span> Admin Panel</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navigator">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="@Url.Action("Index","Admin")">Home</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("UserDetails","Admin")">Details</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Picture","Admin")">Picture</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Projects","Admin")">Pojects</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Admin")">Blog</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="glyphicon glyphicon-cog"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Footer","Admin")">Footer</a></li>
+                            <li><a href="@Url.Action("UpdateLogin","Admin")">Login Credentials</a></li>
+                        </ul>
+                    </li>                  
+                    <li>
+                        <a href="@Url.Action("Logout","Admin")"><span class="glyphicon glyphicon-log-out"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--Content goes here-->
+    @RenderBody()
+
+</body>
+</html>
+

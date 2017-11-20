@@ -1,0 +1,67 @@
+﻿@model DataAccess.Feedback
+
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Navigator.cshtml";
+}
+
+
+<div class="container-fluid text-center" style="background-color: #ffffff; color: #474E5D">
+
+    <div class="panel-group">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Contact
+            </div>
+            <div class="panel-body" style="font-size: 14px">
+                @Html.Raw(ViewBag.Contact)
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Address
+            </div>
+            <div class="panel-body" style="font-size: 14px">
+                @Html.Raw(ViewBag.Address)
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                
+                @if (Session["feedMessage"] == null)
+                {
+                    @:<span>You are most welcome to write your suggestions or comments</span> 
+                }
+                else
+                {
+                    @Session["feedMessage"]
+                    Session.Remove("feedMessage");
+                }
+                  
+            </div>
+            <div class="panel-body text-left" style="font-size: 14px;">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="visitorName" placeholder="Enter your name" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="visitorEmail" placeholder="Enter your email" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea rows="5" name="message" id="message" class="form-control" placeholder="Your message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-info" name="send"><span class="glyphicon glyphicon-send"></span> Send</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

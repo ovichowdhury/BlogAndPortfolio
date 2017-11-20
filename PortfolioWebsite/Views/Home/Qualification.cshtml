@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Qualification";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="container-fluid text-center" style="background-color: #ffffff; color: #474E5D">
+    <h3>Education</h3><br>
+    <p>
+        @Html.Raw(ViewBag.Education)
+    </p>
+</div>
+
+<hr />
+
+<div class="container-fluid text-center" style="background-color: #ffffff; color: #474E5D">
+    <h3>Technical Skills</h3><br>
+    <p>
+        @Html.Raw(ViewBag.Skills)
+    </p>
+</div>
+

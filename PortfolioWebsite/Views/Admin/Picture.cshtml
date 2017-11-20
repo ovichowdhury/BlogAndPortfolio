@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Picture";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading text-center">
+        @if (TempData["message"] == null)
+        {
+            @:<span>Update your image</span>
+        }
+        else
+        {
+            @TempData["message"]
+        }
+    </div>
+    <div class="panel-body">
+        <img src="@Url.Content(ViewBag.ImageUrl)" class="img-responsive img-circle" alt="profile picture" width="300" height="300" style="display:block; margin:auto"/>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="image_file"  required/> 
+            <input type="submit" value="Update" class="btn btn-info" style="float:right" />
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,37 @@
+﻿@model DataAccess.Project
+
+@{
+    ViewBag.Title = "EditProject";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @if (TempData["message"] == null)
+        {
+            @:<span>Update project</span>
+        }
+        else
+        {
+            @TempData["message"]
+        }
+    </div>
+    <div class="panel-body">
+        <form method="post">
+            <input type="hidden" name="projectid" value="@Model.projectId" />
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="projectName" placeholder="Enter your project name" class="form-control" id="name" value="@Model.projectName" required>
+            </div>
+            <div class="form-group">
+                <label for="url">Source URL</label>
+                <input type="text" name="sourceUrl" placeholder="Enter your project source URL" class="form-control" id="url" value="@Model.sourceUrl" required>
+            </div>
+            <div class="form-group">
+                <label for="details">Project Details</label>
+                <textarea rows="5" name="projectDetails" id="details" class="form-control" placeholder="Project details..." required>@Model.projectDetails</textarea>
+            </div>
+            <button type="submit" class="btn btn-info" name="update">Update</button>
+        </form>
+    </div>
+</div>

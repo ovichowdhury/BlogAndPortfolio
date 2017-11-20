@@ -1,0 +1,78 @@
+﻿@model DataAccess.UserDetails
+
+@{
+    ViewBag.Title = "UserDetails";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@section CustomBundle
+{
+    <script src="@Url.Content("~/scripts/tinymce/tinymce.min.js")"></script>
+    <script src="@Url.Content("~/scripts/tinymce/jquery.tinymce.min.js")"></script>
+}
+
+@section CustomScript
+{
+    <script type="text/javascript">
+        tinyMCE.init({
+            // General options
+            mode: "textareas",
+            theme: "modern",
+        });
+    </script>
+
+}
+<h3 class="text-center">
+    @if(TempData["message"] == null)
+    {
+        @:<span>You can edit all the details or any single item (Just click update after editing)</span>
+    }
+    else
+    {
+        @TempData["message"]
+    }
+</h3>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>Portfolio Details</h2>
+    </div>
+    <div class="panel-body" style="font-size: 14px">
+        <form method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Enter your name" class="form-control" id="name" value="@Model.name" required />
+            </div>
+            <div class="form-group">
+                <label for="Occupation">Occupation</label>
+                <input type="text" name="occupation" placeholder="Enter your occupation" class="form-control" id="occupation" value="@Model.occupation" required>
+            </div>
+            <div class="form-group">
+                <label for="education">Education</label>
+                <textarea rows="5" name="education" id="education" class="form-control" placeholder="Your Educational background" required>@Model.education</textarea>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <textarea rows="5" name="skills" id="skills" class="form-control" placeholder="Your technical skills" required>@Model.skills</textarea>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact</label>
+                <textarea rows="5" name="contact" id="contact" class="form-control" placeholder="Your contact" required>@Model.contact</textarea>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea rows="5" name="address" id="address" class="form-control" placeholder="Your address" required>@Model.address</textarea>
+            </div>
+            <div class="form-group">
+                <label for="about">About you</label>
+                <textarea rows="5" name="about" id="about" class="form-control" placeholder="About yourself" required>@Model.about</textarea>
+            </div>
+            <button type="submit" class="btn btn-info" name="send">Update</button>
+        </form>
+    </div>
+</div>
+
+
+<br />
+<div>
+    @Html.ActionLink("Back to Index", "Index")
+</div>

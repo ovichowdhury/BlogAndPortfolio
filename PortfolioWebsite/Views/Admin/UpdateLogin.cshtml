@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "UpdateLogin";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @if (TempData["message"] == null)
+        {
+            @:<span>Provide required information for change credentials</span>
+        }
+        else
+        {
+            @TempData["message"]
+        }
+    </div>
+    <div class="panel-body">
+        <form method="post" id="passwordform">
+            <div class="form-group">
+                <label for="Username">New Username</label>
+                <input type="text" name="username" placeholder="New Username" class="form-control" id="username" value="@ViewBag.Username" required>
+            </div>
+            <div class="form-group">
+                <label for="oldpass">Old Password</label>
+                <input type="password" name="oldpass" placeholder="Enter your old password" class="form-control" id="oldpass" required>
+            </div>
+            <div class="form-group">
+                <label for="newpass">New Password</label>
+                <input type="password" name="newpass" placeholder="Enter your new password" class="form-control" id="newpass" required>
+            </div>
+            <div class="form-group">
+                <label for="conpass">Confirm Password</label>
+                <input type="password" name="conpass" placeholder="Enter your new password again" class="form-control" id="conpass" required>
+            </div>
+            <button type="submit" class="btn btn-info" name="Update">Update</button>
+        </form>
+    </div>
+</div>
+
+@section CustomScript{
+    <script>
+        $(document).ready(function () {
+            $("#passwordform").on('submit', function (e) {
+                e.preventDefault();
+                if ($("#newpass").val() == $("#conpass").val()) {
+                    this.submit();
+                }
+                else {
+                    alert("Password does not match");
+                }
+            });
+        });
+    </script>
+}

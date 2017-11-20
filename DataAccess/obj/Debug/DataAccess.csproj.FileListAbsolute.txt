@@ -1,0 +1,9 @@
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\DataAccess\bin\Debug\DataAccess.dll.config
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\DataAccess\bin\Debug\DataAccess.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\DataAccess\bin\Debug\DataAccess.pdb
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\DataAccess\bin\Debug\EntityFramework.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\DataAccess\bin\Debug\EntityFramework.xml
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\DataAccess\obj\Debug\DataAccess.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\DataAccess\obj\Debug\DataAccess.pdb
