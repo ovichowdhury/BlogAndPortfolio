@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-   public class ArticleRepository:IArticleRespiratory
+   public class ArticleRepository:IArticleRepository
     {
         private DataAccessContext dataAccessContext;
 
@@ -59,5 +59,13 @@ namespace DataAccess
             this.dataAccessContext.Articles.Remove(articleToDelete);
             return this.dataAccessContext.SaveChanges();
         }
+
+
+        public List<Article> Search(string keyword)
+        {
+            List<Article> list = dataAccessContext.Articles.Where(x => x.subject.Contains(keyword)).ToList();
+            return list;
+        }
+
     }
 }

@@ -1,4 +1,7 @@
-﻿using DataAccess;
+﻿using PortfolioWebsite.App_Start;
+using PortfolioWebsite.Attributes;
+using PWEntity;
+using PWService;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,25 +15,25 @@ namespace PortfolioWebsite.Controllers
     {
         //
         // GET: /Admin/
-        private AllRepositories repositories = new AllRepositories();
+        private ServiceFactory services;
+
+        public AdminController()
+        {
+            services = Injector.container.Resolve<ServiceFactory>();
+            //this.services = new ServiceFactory();
+        }
+
+        [AdminAuthentication]
         public ActionResult Index()
         {
-            if (Session["username"] != null)
-            {
-                return View(repositories.feedbackRepository.GetAll().OrderByDescending(x => x.date));
-            }
-            else
-            {
-                return RedirectToAction("Login", "Home");
-            }
-                
+            return View(services.feedbackService.GetAll().OrderByDescending(x => x.date));
         }
 
         public ActionResult DeleteFeed(int id)
         {
             if (Session["username"] != null)
             {
-                return View(repositories.feedbackRepository.Get(id));
+                return View(services.feedbackService.Get(id));
             }
             else
             {
@@ -43,7 +46,7 @@ namespace PortfolioWebsite.Controllers
         {
             if (Session["username"] != null)
             {
-                repositories.feedbackRepository.Delete(id);
+                services.feedbackService.Delete(id);
                 return RedirectToAction("Index");
             }
             else
@@ -63,7 +66,7 @@ namespace PortfolioWebsite.Controllers
         {
             if (Session["username"] != null)
             {
-                return View(repositories.userDetailsRepository.Get());
+                return View(services.userDetailsService.Get());
             }
             else
             {
@@ -78,7 +81,8 @@ namespace PortfolioWebsite.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    repositories.userDetailsRepository.Update(ud);
+                    ud.id = 1;
+                    services.userDetailsService.Update(ud);
                     TempData["message"] = "Update Successfull";
                     return RedirectToAction("UserDetails");
                 }
@@ -99,7 +103,7 @@ namespace PortfolioWebsite.Controllers
         {
             if (Session["username"] != null)
             {
-                ViewBag.ImageUrl = repositories.imageRepository.Get().imageUrl;
+                ViewBag.ImageUrl = services.imageService.Get().imageUrl;
                 return View();
             }
             else
@@ -120,8 +124,9 @@ namespace PortfolioWebsite.Controllers
                     string path = Path.Combine(Server.MapPath("~/Images/"), file.FileName);
                     file.SaveAs(path);
                     Image img = new Image();
+                    img.id = 1;
                     img.imageUrl = "~/Images/" + file.FileName;
-                    repositories.imageRepository.Update(img);
+                    services.imageService.Update(img);
 
                     TempData["message"] = "Update Successfull";
                     return RedirectToAction("Picture");
@@ -144,7 +149,7 @@ namespace PortfolioWebsite.Controllers
         {
             if (Session["username"] != null)
             {
-                return View(repositories.projectRepository.GetAll());
+                return View(services.projectService.GetAll());
             }
             else
             {
@@ -171,7 +176,7 @@ namespace PortfolioWebsite.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    repositories.projectRepository.Insert(pro);
+                    services.projectService.Insert(pro);
                     TempData["message"] = "New project created successfully";
                     return RedirectToAction("CreateProject");
                 }
@@ -192,7 +197,7 @@ namespace PortfolioWebsite.Controllers
         {
             if (Session["username"] != null)
             {
-                return View(repositories.projectRepository.Get(id));
+                return View(services.projectService.Get(id));
             }
             else
             {
@@ -207,7 +212,7 @@ namespace PortfolioWebsite.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    repositories.projectRepository.Update(pro);
+                    services.projectService.Update(pro);
                     TempData["message"] = "Updated Successfully";
                     return RedirectToAction("EditProject");
                 }
@@ -228,7 +233,7 @@ namespace PortfolioWebsite.Controllers
         {
             if (Session["username"] != null)
             {
-                return View(repositories.projectRepository.Get(id));
+                return View(services.projectService.Get(id));
             }
             else
             {
@@ -241,7 +246,7 @@ namespace PortfolioWebsite.Controllers
         {
             if (Session["username"] != null)
             {
-                repositories.projectRepository.Delete(id);
+                services.projectService.Delete(id);
                 return RedirectToAction("Projects");
             }
             else
@@ -255,7 +260,7 @@ namespace PortfolioWebsite.Controllers
         {
             if (Session["username"] != null)
             {
-                return View(repositories.footerRepository.Get());
+                return View(services.footerService.Get());
             }
             else
             {
@@ -270,7 +275,8 @@ namespace PortfolioWebsite.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    repositories.footerRepository.Update(ft);
+                    ft.id = 1;
+                    services.footerService.Update(ft);
                     TempData["message"] = "Updated Successfully";
                     return RedirectToAction("Footer");
                 }
@@ -290,7 +296,7 @@ namespace PortfolioWebsite.Controllers
         {
             if (Session["username"] != null)
             {
-                ViewBag.Username = repositories.loginRepository.Get().username;
+                ViewBag.Username = services.loginService.Get().username;
                 return View();
             }
             else
@@ -304,12 +310,13 @@ namespace PortfolioWebsite.Controllers
         {
             if (Session["username"] != null)
             {
-                if (Convert.ToString(formData["oldpass"]).Equals(repositories.loginRepository.Get().password))
+                if (Convert.ToString(formData["oldpass"]).Equals(services.loginService.Get().password))
                 {
                     Login lg = new Login();
+                    lg.id = 1;
                     lg.username = Convert.ToString(formData["username"]);
                     lg.password = Convert.ToString(formData["newpass"]);
-                    repositories.loginRepository.Update(lg);
+                    services.loginService.Update(lg);
 
                     TempData["message"] = "Login Credentials updated successfully";
                     return RedirectToAction("UpdateLogin");
@@ -326,6 +333,45 @@ namespace PortfolioWebsite.Controllers
             }
         }
 
+
+        [AdminAuthentication]
+        public ActionResult Statistics()
+        {
+
+            this.SetStatData();
+            return View();
+        }
+
+        [NonAction]
+        private void SetStatData()
+        {
+            ViewBag.TotalFeedbacks = services.feedbackService.GetAll().Count;
+            ViewBag.TotalComments = services.articleCommentService.GetAll().Count;
+            ViewBag.TotalArticles = services.articleService.GetAll().Count;
+
+            int totalFeedThisMonth = 0;
+            int totalCommentsThisMonth = 0;
+            int totalArticlesThisMonth = 0;
+            foreach (var feedback in services.feedbackService.GetAll())
+            {
+                if (feedback.date.Month == DateTime.Now.Month && feedback.date.Year == DateTime.Now.Year)
+                    totalFeedThisMonth++;
+            }
+            foreach (var comment in services.articleCommentService.GetAll())
+            {
+                if (comment.date.Month == DateTime.Now.Month && comment.date.Year == DateTime.Now.Year)
+                    totalCommentsThisMonth++;
+            }
+            foreach (var article in services.articleService.GetAll())
+            {
+                if (article.date.Month == DateTime.Now.Month && article.date.Year == DateTime.Now.Year)
+                    totalArticlesThisMonth++;
+            }
+
+            ViewBag.FeedsThisMonth = totalFeedThisMonth;
+            ViewBag.CommentsThisMonth = totalCommentsThisMonth;
+            ViewBag.ArticlesThisMonth = totalArticlesThisMonth;
+        }
 
 
 	}

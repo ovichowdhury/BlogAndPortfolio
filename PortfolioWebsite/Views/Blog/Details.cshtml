@@ -1,0 +1,75 @@
+﻿@model PWEntity.Article
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<h2 class="text-center">@Model.subject</h2>
+
+<div class="container-fluid">
+    <p class="text-center">@Html.Raw(Model.content)</p>
+    <br /><br />
+    <h6><i>Publish Date: @Model.date</i></h6>
+    <form action="@Url.Action("Download","Blog")" method="get">
+        <input type="hidden" name="articleId" value="@Model.id" />
+        <input type="submit" name="submit" value="Download Attachment" class="btn bg-primary" />
+    </form>
+</div>
+
+<h2>Comments</h2>
+<div class="panel-group">
+    @foreach (var item in ViewBag.comments)
+    {
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4>@item.commenterName</h4>
+                <h6><i>@item.date</i></h6>
+            </div>
+            <div class="panel-body" style="font-size: 14px">
+                <p>@item.comment</p>
+            </div>
+        </div>
+    }
+
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+
+            @if (Session["message"] == null)
+            {
+                @:<span>You are most welcome to write your suggestions or comments</span>
+                }
+            else
+            {
+                @Session["message"]
+                Session.Remove("message");
+            }
+
+        </div>
+        <div class="panel-body text-left" style="font-size: 14px;">
+            <form method="post">
+                <input type="hidden" name="articleId" value="@Model.id"/>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="commenterName" placeholder="Enter your name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="commenterEmail" placeholder="Enter your email" class="form-control" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea rows="5" name="comment" id="comment" class="form-control" placeholder="Your comment..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-info" name="send"><span class="glyphicon glyphicon-send"></span> Post</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+

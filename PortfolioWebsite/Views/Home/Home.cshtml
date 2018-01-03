@@ -16,8 +16,8 @@
 <div class="container-fluid text-center" style="background-color: #474E5D; color: #f5f6f7">
     <h3 class="margin">Want to Read My Posts?</h3>
     <h4 class="margin">Please enter the keyword or post name for search</h4>
-    <form action="" class="form-inline">
-        <input type="text" placeholder="Enter Keyword" id="search" class="form-control">
+    <form action="@Url.Action("Search","Blog")" method="post" class="form-inline">
+        <input type="text" name="keyword" placeholder="Enter Keyword" id="search" class="form-control">
         <button type="submit" class="btn btn-info">
             <span class="glyphicon glyphicon-search"></span>
             Search
@@ -29,14 +29,14 @@
 <div class="container-fluid text-center" style="background-color: #f5f6f7; color: #474E5D; padding-top: 30px; padding-bottom: 30px">
     <h3 class="margin">Check out my latest posts</h3>
     <div class="row">
-        @for (int i = 0; i < 3; i++)
+        @foreach (var item in ViewBag.LatestArticles)
         {
              <div class="col-md-4">
                 <div class="thumbnail">
-                    <a href="images/ocean.jpg">
-                        <img src="images/ocean.jpg" alt="post image" style="width:100%">
+                    <a href="@Url.Action("Details", "Blog", new { id = item.id })">
+                        <img src="~/image/article.png" alt="post image" style="width:50%; height:50%">
                         <div class="caption">
-                            <p>hello hello hellovg hello hello</p>
+                            <p>@item.subject</p>
                         </div>
                     </a>
                 </div>
@@ -46,3 +46,40 @@
     </div>
 </div>
 
+@section CustomBundle{
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"></script>
+}
+
+@section CustomStyle{
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/cupertino/jquery-ui.css">
+}
+
+@section CustomScript{
+    <script>
+        $(function () {
+            $("#search").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '/Home/SearchAutoComplete/',
+                        data: "{ 'prefix': '" + request.term + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                minLength: 3
+            });
+        });
+    </script>
+}

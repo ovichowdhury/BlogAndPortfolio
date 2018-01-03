@@ -1,0 +1,10 @@
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWEntity\bin\Debug\PWEntity.dll.config
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWEntity\bin\Debug\PWEntity.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWEntity\bin\Debug\PWEntity.pdb
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWEntity\bin\Debug\EntityFramework.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWEntity\bin\Debug\EntityFramework.SqlServer.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWEntity\bin\Debug\EntityFramework.xml
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWEntity\bin\Debug\EntityFramework.SqlServer.xml
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWEntity\obj\Debug\PWEntity.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWEntity\obj\Debug\PWEntity.pdb
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWEntity\obj\Debug\PWEntity.csprojResolveAssemblyReference.cache

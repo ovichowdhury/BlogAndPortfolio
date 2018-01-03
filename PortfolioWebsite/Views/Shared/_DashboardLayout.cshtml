@@ -45,7 +45,17 @@
                         <a href="@Url.Action("Projects","Admin")">Pojects</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index","Admin")">Blog</a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span>Blog</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("CreateNew","Blog")">Create New</a></li>
+                            <li><a href="@Url.Action("ShowAll","Blog")">Show All</a></li>
+                            <li><a href="@Url.Action("Comments","Blog")">Comments</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Statistics","Admin")"><span class="glyphicon glyphicon-stats"></span></a>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">

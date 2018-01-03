@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PWEntity.ArticleComment>
+
+@{
+    ViewBag.Title = "Comments";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Comments</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            <label>Name</label>
+        </th>
+        <th>
+            <label>Email</label>
+        </th>
+        <th>
+            <label>Comment</label>
+        </th>
+        <th>
+            <label>Date</label>
+        </th>
+        <th>
+            <label>Article</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.commenterName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.commenterEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.parentArticle.subject)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "DeleteComment", new { id = item.id }, new { onclick="return confirm('Are you sure?');"})
+        </td>
+    </tr>
+}
+
+</table>

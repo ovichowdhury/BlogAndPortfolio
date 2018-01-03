@@ -44,6 +44,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Injection">
+      <HintPath>..\packages\Injection.1.0.0\lib\Injection.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -83,6 +86,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="attachments\Screenshot.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -101,6 +105,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Image\article.png" />
     <Content Include="Image\default.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -109,6 +114,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="attachments\Resume.pdf" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -119,6 +125,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\tinymce\initTinymce.js" />
     <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.js" />
@@ -267,8 +274,11 @@
     <Content Include="Views\Home\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Injector.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\AdminAuthenticationAttribute.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -303,6 +313,14 @@
     <Content Include="Views\Admin\DeleteProject.cshtml" />
     <Content Include="Views\Admin\Footer.cshtml" />
     <Content Include="Views\Admin\UpdateLogin.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\Details.cshtml" />
+    <Content Include="Views\Blog\Search.cshtml" />
+    <Content Include="Views\Blog\CreateNew.cshtml" />
+    <Content Include="Views\Blog\ShowAll.cshtml" />
+    <Content Include="Views\Blog\Edit.cshtml" />
+    <Content Include="Views\Blog\Comments.cshtml" />
+    <Content Include="Views\Admin\Statistics.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -316,9 +334,17 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
-      <Project>{12830493-8e48-48c7-b0d0-86ed4b7ce688}</Project>
-      <Name>DataAccess</Name>
+    <ProjectReference Include="..\PWEntity\PWEntity.csproj">
+      <Project>{8ff047cc-2ca6-40db-b123-2ad7428a11a3}</Project>
+      <Name>PWEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PWRepository\PWRepository.csproj">
+      <Project>{816b4c9e-1490-4c75-8d8c-d341e1ab6766}</Project>
+      <Name>PWRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PWService\PWService.csproj">
+      <Project>{7e4295f7-3ac0-4777-9173-5313779b7bd9}</Project>
+      <Name>PWService</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

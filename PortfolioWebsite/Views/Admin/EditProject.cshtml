@@ -1,4 +1,4 @@
-﻿@model DataAccess.Project
+﻿@model PWEntity.Project
 
 @{
     ViewBag.Title = "EditProject";
@@ -18,7 +18,7 @@
     </div>
     <div class="panel-body">
         <form method="post">
-            <input type="hidden" name="projectid" value="@Model.projectId" />
+            <input type="hidden" name="projectid" value="@Model.id" />
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" name="projectName" placeholder="Enter your project name" class="form-control" id="name" value="@Model.projectName" required>

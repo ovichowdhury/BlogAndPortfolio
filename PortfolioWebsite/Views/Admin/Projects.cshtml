@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataAccess.Project>
+﻿@model IEnumerable<PWEntity.Project>
 
 @{
     ViewBag.Title = "Projects";
@@ -36,9 +36,9 @@
             <a href="@item.sourceUrl"> Click here</a>
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditProject", new { id=item.projectId }) |
+            @Html.ActionLink("Edit", "EditProject", new { id=item.id }) |
            
-            @Html.ActionLink("Delete", "DeleteProject", new { id=item.projectId })
+            @Html.ActionLink("Delete", "DeleteProject", new { id=item.id })
         </td>
     </tr>
 }

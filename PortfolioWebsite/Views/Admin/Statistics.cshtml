@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Statistics";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2 style="text-align:center">Statistics</h2>
+<hr />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="well" style="text-align:center">
+                <br />
+                <h4>Total Number of Feedback</h4>
+                <p>@ViewBag.TotalFeedbacks</p>
+                <br />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well" style="text-align:center">
+                <br />
+                <h4>Total Number of Comments</h4>
+                <p>@ViewBag.TotalComments</p>
+                <br />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well" style="text-align:center">
+                <br />
+                <h4>Total Number of Articles</h4>
+                <p>@ViewBag.TotalArticles</p>
+                <br />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="well" style="text-align:center">
+                <br />
+                <h4>Number of Feedback This Month</h4>
+                <p>@ViewBag.FeedsThisMonth</p>
+                <br />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well" style="text-align:center">
+                <br />
+                <h4>Number of Comments This Month</h4>
+                <p>@ViewBag.CommentsThisMonth</p>
+                <br />
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well" style="text-align:center">
+                <br />
+                <h4>Number of Article Written This Month</h4>
+                <p>@ViewBag.ArticlesThisMonth</p>
+                <br />
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

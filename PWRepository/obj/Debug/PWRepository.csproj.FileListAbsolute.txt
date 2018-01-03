@@ -1,0 +1,12 @@
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\bin\Debug\PWRepository.dll.config
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\bin\Debug\PWRepository.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\bin\Debug\PWRepository.pdb
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\bin\Debug\EntityFramework.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\bin\Debug\EntityFramework.SqlServer.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\bin\Debug\PWEntity.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\bin\Debug\PWEntity.pdb
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\bin\Debug\EntityFramework.xml
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\bin\Debug\EntityFramework.SqlServer.xml
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\obj\Debug\PWRepository.csprojResolveAssemblyReference.cache
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\obj\Debug\PWRepository.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PWRepository\obj\Debug\PWRepository.pdb

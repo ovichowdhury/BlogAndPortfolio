@@ -20,5 +20,11 @@ E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\b
 E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\obj\Debug\PortfolioWebsite.csprojResolveAssemblyReference.cache
 E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\obj\Debug\PortfolioWebsite.dll
 E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\obj\Debug\PortfolioWebsite.pdb
-E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\bin\DataAccess.dll
-E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\bin\DataAccess.pdb
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\bin\Injection.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\bin\PWEntity.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\bin\PWRepository.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\bin\PWService.dll
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\bin\PWEntity.pdb
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\bin\PWRepository.pdb
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\bin\PWService.pdb
+E:\O V E\CIS\Advanced topic in programming 2\PortfolioWebsite\PortfolioWebsite\bin\Injection.pdb

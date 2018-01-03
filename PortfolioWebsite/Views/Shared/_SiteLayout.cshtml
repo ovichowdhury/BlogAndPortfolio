@@ -10,6 +10,10 @@
     <link href="~/Content/Style.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("CustomBundle",false)
+    @RenderSection("CustomScript",false)
+    @RenderSection("CustomStyle",false)
 </head>
 <body>
     <!--Navigation section-->
@@ -29,7 +33,7 @@
                         <a href="@Url.Action("Home","Home")">Home</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Blog","Home")">Blog</a>
+                        <a href="@Url.Action("Index","Blog")">Blog</a>
                     </li>
                     <li>
                         <a href="@Url.Action("Qualification","Home")">Education & Skills</a>

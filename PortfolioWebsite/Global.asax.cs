@@ -1,4 +1,5 @@
-﻿using DataAccess;
+﻿using PortfolioWebsite.App_Start;
+using PWRepository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -16,6 +17,7 @@ namespace PortfolioWebsite
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             Database.SetInitializer(new CustomInitializer());
+            Injector.Configure();
         }
     }
 }

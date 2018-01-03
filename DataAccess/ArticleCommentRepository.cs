@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-   public class ArticleCommentRepository : IArticleCommentRespiratory
+   public class ArticleCommentRepository : IArticleCommentRepository
     {
         private DataAccessContext dataAccessContext;
         public ArticleCommentRepository()

@@ -1,0 +1,42 @@
+﻿@model PWEntity.Article
+@{
+    ViewBag.Title = "CreateNew";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@section CustomBundle
+{
+    <script src="@Url.Content("~/scripts/tinymce/tinymce.min.js")"></script>
+    <script src="@Url.Content("~/scripts/tinymce/jquery.tinymce.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/tinymce/initTinymce.js")"></script>
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @if (TempData["message"] == null)
+        {
+            @:<h3>Write New Article</h3>
+        }
+        else
+        {
+            @TempData["message"]
+        }
+    </div>
+    <div class="panel-body">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter article subject" required/>
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea rows="15" cols="10" id="content" name="content"></textarea>
+            </div>
+            <br />
+            <input type="file" name="file"/>
+            <input type="submit" class="btn btn-info" name="create" value="Create" style="float:right"/>
+        </form>
+    </div>
+</div>
+

@@ -57,8 +57,8 @@
     <Compile Include="FeedbackRepository.cs" />
     <Compile Include="Footer.cs" />
     <Compile Include="FooterRepository.cs" />
-    <Compile Include="IArticleCommentRespiratory.cs" />
-    <Compile Include="IArticleRespiratory.cs" />
+    <Compile Include="IArticleCommentRepository.cs" />
+    <Compile Include="IArticleRepository.cs" />
     <Compile Include="IFeedbackRepository.cs" />
     <Compile Include="IFooterRepository.cs" />
     <Compile Include="IImageRepository.cs" />
